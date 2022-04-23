@@ -1,0 +1,16 @@
+---
+layout: base.liquid
+pagination:
+  data: categories
+  size: 1
+  alias: category
+  addAllPagesToCollections: true
+permalink: "categoria/{{ category.slug }}/"
+eleventyComputed:
+  eleventyNavigation:
+    parent: categories
+    key: "{{ category.slug }}"
+    title: "{{ category.name }}"
+---
+
+<h1>{{ category.name }}</h1>

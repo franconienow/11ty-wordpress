@@ -1,0 +1,18 @@
+{
+  "name": "11ty-wordpress",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/franconienow/11ty-wordpress.git",
+  "author": "franconienow <fnienow.sn@gmail.com>",
+  "license": "MIT",
+  "packageManager": "yarn@3.2.0",
+  "dependencies": {
+    "@11ty/eleventy": "^1.0.0",
+    "@11ty/eleventy-fetch": "^3.0.0",
+    "@11ty/eleventy-navigation": "^0.3.2"
+  },
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve"
+  }
+}
