@@ -1,7 +1,7 @@
 name: learn-github-actions
 on: [push]
 jobs:
-  build_&_deploy_develop:
+  build-&-deploy-develop:
     if: github.repository == '11ty-wordpress/develop'
     runs-on: ubuntu-latest
     steps:
