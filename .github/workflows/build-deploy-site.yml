@@ -1,4 +1,4 @@
-name: learn-github-actions
+name: build-deploy-site
 on:
   push:
     branches:
