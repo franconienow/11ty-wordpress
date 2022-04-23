@@ -7,9 +7,21 @@ jobs:
   build-deploy-develop:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
         with:
           node-version: "16"
-      - run: yarn
-      - run: yarn build
+      - name: Install dependencies
+        run: yarn
+      - name: Build site
+        run: yarn build
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      - name: Sync files to S3 bucket
+        run: aws s3 sync dist s3://${{ secrets.S3_BUCKET }} --delete
