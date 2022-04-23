@@ -1,13 +1,13 @@
 name: learn-github-actions
 on: [push]
 jobs:
-  build:
+  build_&_deploy_develop:
+    if: github.repository == '11ty-wordpress/develop'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '14'
-      - run: npm install --global yarn
+          node-version: '16'
       - run: yarn
       - run: yarn build
