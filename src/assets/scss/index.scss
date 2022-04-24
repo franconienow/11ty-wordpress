@@ -1,0 +1,9 @@
+$red: rgb(156, 32, 32);
+$white: white;
+
+h1 {
+    background-color: $red;
+    color: $white;
+}
+
+@import 'navbar.scss';
