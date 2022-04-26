@@ -1,8 +1,14 @@
 name: build-deploy-site
 on:
+<<<<<<< HEAD
   repository_dispatch:
     types:
       - wordpress
+=======
+  push:
+    branches:
+      - develop
+>>>>>>> parent of 04e431c... Trigger do wordpress no yml do Actions
 jobs:
   build-deploy-develop:
     runs-on: ubuntu-latest
