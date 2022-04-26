@@ -1,11 +1,7 @@
 name: build-deploy-site
 on:
-  push:
-    branches:
-      - develop
   repository_dispatch:
-    types:
-      - wordpress
+    types: [wordpress]
 jobs:
   build-deploy-develop:
     runs-on: ubuntu-latest
