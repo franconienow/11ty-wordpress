@@ -1,19 +1,24 @@
 {% assign navPages = collections.all | eleventyNavigation %}
-<nav class="navbar">
-  <ul>
-    {% for page in navPages %}
-      <li>
-        <a href="{{ page.url }}">{{ page.title }}</a>
-        {% if page.children.size > 0 %}
-        <ul>
-          {% for childPage in page.children %}
-          <li>
-            <a href="{{ childPage.url }}">{{ childPage.title }}</a>
-          </li>
-          {% endfor %}
-        </ul>
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
-</nav>
+<header class="container">
+  <nav class="navbar">
+    <a class="navbar__logo">
+      <img src="http://admin.bigtuna.site/wp-content/uploads/2022/04/Logo.svg" alt="Logo">
+    </a>
+    <ul class="navbar__nav">
+      {% for page in navPages %}
+        <li>
+          <a href="{{ page.url }}">{{ page.title }}</a>
+          {% if page.children.size > 0 %}
+          <ul>
+            {% for childPage in page.children %}
+            <li>
+              <a href="{{ childPage.url }}">{{ childPage.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</header>

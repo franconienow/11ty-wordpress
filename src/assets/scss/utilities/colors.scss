@@ -1,0 +1,15 @@
+//
+// Colors
+//
+
+@each $element, $value in $colors {
+  .text-#{$element} {
+    color: $value;
+  }
+}
+
+@each $element, $value in $colors {
+  .bg-#{$element} {
+    background-color: $value;
+  }
+}

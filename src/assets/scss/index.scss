@@ -1,9 +1,14 @@
-$red: rgb(156, 32, 32);
-$white: white;
+// Styles
+@import "global/variables";
 
-h1 {
-    background-color: $red;
-    color: $white;
-}
+// Reset
+@import "reset";
 
-@import 'navbar.scss';
+// Globals
+@import "global/typography";
+@import "global/headers";
+
+// Utilities
+@import "utilities/colors";
+@import "utilities/containers";
+
