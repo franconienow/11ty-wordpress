@@ -2,20 +2,27 @@
 // Variables
 //
 
-// Colors
+// Main Colors
 $pink: #ff2e63 !default;
 $teal: #08d9d6 !default;
 $red: #ea0000 !default;
+
+$main-colors: (
+  primary: $pink,
+  secondary: $teal,
+  danger: $red,
+);
 
 // Hover Colors
 $hover-pink: #c71341 !default;
 $hover-teal: #08bfbd !default;
 $hover-red: #cc0404 !default;
 
-// Light Colors
-$light-pink: rbga($pink, 0.25) !default;
-$light-teal: rgba($teal, 0.25) !default;
-$light-red: rgba($red, 0.25) !default;
+$main-hover-colors: (
+  primary: $hover-pink,
+  secondary: $hover-teal,
+  danger: $hover-red,
+);
 
 // Basic Colors
 $white: #fff !default;
@@ -89,3 +96,23 @@ $containers-sizes: (
   xl: 1140px,
   xxl: 1320px,
 );
+
+// Radius
+$border-radius: 0.75rem !default;
+
+// Button
+$button-padding-left: 1rem !default;
+$button-padding-right: 4rem !default;
+$button-padding-top: 0.75rem !default;
+$button-padding-bottom: 0.75rem !default;
+
+// Tag
+$tag-padding-y: 0.25rem !default;
+$tag-padding-x: 0.5rem !default;
+
+// Navbar
+$navbar-logo-width: 60px !default;
+$navbar-nav-padding-y: 1.125rem !default;
+$navbar-nav-padding-x: 1rem !default;
+$navbar-nav-link-hover-bg: $gray-70 !default;
+$navbar-nav-link-active-color: $pink !default;

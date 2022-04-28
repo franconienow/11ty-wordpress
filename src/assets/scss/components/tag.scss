@@ -1,0 +1,36 @@
+//
+// Tag styles
+//
+
+.tag {
+  display: inline-block;
+  text-align: left;
+  padding-top: $tag-padding-y;
+  padding-bottom: $tag-padding-y;
+  padding-left: $tag-padding-x;
+  padding-right: $tag-padding-x;
+  border-radius: $border-radius;
+  font-size: $font-size-small;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: none;
+    border-color: inherit;
+  }
+
+  @each $color, $value in $main-colors {
+    &--#{$color} {
+      color: $value;
+      background-color: rgba($value, 0.25);
+    }
+  }
+
+  @each $color, $value in $main-hover-colors {
+    &--#{$color}:hover {
+      color: $value;
+      background-color: rgba($value, 0.25);
+    }
+  }
+}

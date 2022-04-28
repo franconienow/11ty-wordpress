@@ -1,0 +1,71 @@
+//
+// Button styles
+//
+
+.btn {
+  display: inline-block;
+  text-align: left;
+  padding-top: $button-padding-top;
+  padding-bottom: $button-padding-bottom;
+  padding-left: $button-padding-left;
+  padding-right: $button-padding-right;
+  border-radius: 0;
+  font-size: $font-size-body;
+  text-decoration: none;
+  border: 1px solid;
+  cursor: pointer;
+  vertical-align: middle;
+
+  &:focus-visible {
+    outline: none;
+    border-color: $teal;
+  }
+
+  &--primary {
+    color: $white;
+    background-color: $pink;
+    border-color: transparent;
+    &:hover,
+    &:active {
+      color: $gray-20;
+      background-color: $hover-pink;
+    }
+  }
+
+  &--secondary {
+    color: $white;
+    background-color: $gray-80;
+    border-color: transparent;
+    &:hover,
+    &:active {
+      color: $gray-20;
+      background-color: $gray-90;
+    }
+  }
+
+  &--tertiary {
+    color: $pink;
+    background-color: transparent;
+    &:hover,
+    &:active {
+      color: $gray-20;
+      background-color: $hover-pink;
+      border-color: transparent;
+    }
+    &:focus-visible {
+      color: $white;
+      background-color: $pink;
+    }
+  }
+
+  &--icon {
+    display: flex;
+    gap: 2.375rem;
+    padding-right: 1rem;
+    & > svg {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+    }
+  }
+}
