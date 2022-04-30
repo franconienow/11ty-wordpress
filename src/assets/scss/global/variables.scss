@@ -99,6 +99,7 @@ $containers-sizes: (
 
 // Radius
 $border-radius: 0.75rem !default;
+$border-radius-lg: 1rem !default;
 
 // Button
 $button-padding-left: 1rem !default;
@@ -116,3 +117,10 @@ $navbar-nav-padding-y: 1.125rem !default;
 $navbar-nav-padding-x: 1rem !default;
 $navbar-nav-link-hover-bg: $gray-70 !default;
 $navbar-nav-link-active-color: $pink !default;
+
+// Posts previews
+$post-preview-vertical-body-padding-y: 1rem !default;
+$post-preview-vertical-body-padding-x: 1rem !default;
+$post-preview-vertical-bg: $gray-80 !default;
+$post-preview-vertical-border: 1px solid $gray-70 !default;
+$post-preview-vertical-radius: $border-radius-lg !default;

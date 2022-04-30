@@ -5,6 +5,14 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
+  eleventyConfig.addLiquidFilter("getCategoryPage", (catId, pages) => {
+    for (const page of pages) {
+      if (page.id == catId) {
+        return page;
+      }
+    }
+  });
+
   eleventyConfig.ignores.add(path.join("src", "assets", "/**"));
 
   eleventyConfig.addTransform("htmlmin", (content, outputPath) => {

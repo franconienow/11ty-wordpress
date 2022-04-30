@@ -1,0 +1,65 @@
+//
+// Post preview vertical styles
+//
+
+.post-preview-vertical {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: $post-preview-vertical-bg;
+  border: $post-preview-vertical-border;
+  border-radius: $post-preview-vertical-radius;
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: $post-preview-vertical-radius;
+    border-top-right-radius: $post-preview-vertical-radius;
+  }
+
+  &__body {
+    background-color: $post-preview-vertical-bg;
+    border-bottom-left-radius: $post-preview-vertical-radius;
+    border-bottom-right-radius: $post-preview-vertical-radius;
+    padding-top: $post-preview-vertical-body-padding-y;
+    padding-bottom: $post-preview-vertical-body-padding-y;
+    padding-right: $post-preview-vertical-body-padding-x;
+    padding-left: $post-preview-vertical-body-padding-x;
+    transition: transform 130ms ease-in;
+  }
+
+  &__title {
+    @extend h4;
+    margin-bottom: 0.5rem;
+  }
+
+  &__date,
+  &__excerpt {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: $font-size-small;
+    color: $gray-20;
+  }
+
+  &__categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    position: relative;
+    z-index: 20;
+  }
+
+  &__link-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+  }
+
+  &:hover &__body {
+    transform: translateY(-5%);
+  }
+}

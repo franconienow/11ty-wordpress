@@ -10,7 +10,7 @@ title: This is the home page!
 
 <section>
   <div class="container" style="display: flex;flex-direction: column;align-items: start; gap: 1rem;">
-    <a class="tag tag--primary" href="#">Javascript</a>
+    <!-- <a class="tag tag--primary" href="#">Javascript</a>
     <a class="tag tag--secondary" href="#">Javascript</a>
     <a class="tag tag--danger" href="#">Javascript</a>
 
@@ -40,6 +40,11 @@ title: This is the home page!
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" clip-rule="evenodd" />
       </svg>
-    </button>
+    </button> -->
+
+    {% for post in posts %}
+      {% include 'post-preview/vertical', thePost: post %}
+    {% endfor %}
+
   </div>
 </section>
