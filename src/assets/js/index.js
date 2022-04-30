@@ -1,4 +1,7 @@
-import '../scss/index.scss'
+import "../scss/index.scss";
+import { initDropdowns } from "../js/components/dropdown";
+import { initNavbar } from "../js/components/navbar";
 
-let n1 = 1_000_000_000;
-console.log(n1);
+
+initDropdowns();
+initNavbar();
