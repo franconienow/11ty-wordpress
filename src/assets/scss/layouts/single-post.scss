@@ -44,4 +44,21 @@
       @extend .img-fluid;
     }
   }
+
+  &__categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 3rem;
+  }
+
+  &__read-more {
+    @extend .base-grid;
+    margin-top: 3rem;
+    grid-template-columns: repeat(2, 1fr);
+
+    & > h4 {
+      grid-column: 1 / 3;
+    }
+  }
 }

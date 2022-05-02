@@ -15,5 +15,22 @@ permalink: "posts/{{ post.id }}/"
     <div class="single-post__content">
       {{ post.content.rendered }}
     </div>
+    <div class="single-post__categories">
+      <h3>Categorias:</h3>
+      {% assign catPages = collections.all | eleventyNavigation: "categories" %}
+      {% for catId in post.categories %}
+        {% assign catPage = catId | getCategoryPage: catPages %}
+        <a class="tag tag--secondary" href="{{ catPage.url }}">{{ catPage.title }}</a>
+      {% endfor %}
+    </div>
+    {% assign relatedPosts = posts | getRelatedPosts: post.categories, post.id %}
+    {% if relatedPosts %}
+      <div class="single-post__read-more">
+        <h4>Leia também</h4>
+        {% for curPost in relatedPosts %}
+          {% include 'card', thePost: curPost, simplified: true %}
+        {% endfor %}
+      </div>
+    {% endif %}
   </div>
 </article>

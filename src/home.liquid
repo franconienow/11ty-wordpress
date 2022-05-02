@@ -30,6 +30,7 @@ title: This is the home page!
 
 <section class="py-2 py-lg-3">
   <div class="container posts-grid">
+    <h2 class="text-secondary">Todos os Posts</h2>
     {% for post in posts %}
       {% include 'card', thePost: post %}
     {% endfor %}
