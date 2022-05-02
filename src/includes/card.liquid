@@ -1,0 +1,22 @@
+<div class="card{% if simplified %} card--simplified{% endif %}">
+  <div class="card__header">
+    <img
+      class="card__img"
+      src="{{ thePost.jetpack_featured_media_url }}"
+      alt="{{ thePost.title.rendered }}"
+    />
+  </div>
+  <div class="card__body">
+    <h3 class="card__title">{{ thePost.title.rendered }}</h3>
+    <time class="card__date" datetime="{{ thePost.date }}">{{ thePost.date | date: " %d/%m/%Y" }}</time>
+    <div class="card__excerpt">{{ thePost.excerpt.rendered | truncate: 150 }}</div>
+    <div class="card__categories">
+      {% assign catPages = collections.all | eleventyNavigation: "categories" %}
+      {% for catId in thePost.categories %}
+       {% assign catPage = catId | getCategoryPage: catPages %}
+        <a class="tag tag--secondary" href="{{ catPage.url }}">{{ catPage.title }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  <a href="/posts/{{ thePost.id }}" class="card__link-overlay"></a>
+</div>

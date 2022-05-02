@@ -1,0 +1,61 @@
+//
+// Card Overaly styles
+//
+
+.card-overlay {
+  position: relative;
+  border: $card-overlay-border;
+  border-radius: $card-overlay-radius;
+  aspect-ratio: 21/9;
+  background-color: $card-overlay-bg;
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: $card-overlay-radius;
+    opacity: 0.45;
+    transition: $transition;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    pointer-events: none;
+    z-index: 1;
+    padding-top: $card-overlay-body-padding-y;
+    padding-bottom: $card-overlay-body-padding-y;
+    padding-left: $card-overlay-body-padding-x;
+    padding-right: $card-overlay-body-padding-x;
+  }
+
+  &__excerpt {
+    display: block;
+    margin-top: auto;
+    font-size: $font-size-small;
+  }
+
+  &__title {
+    @extend h4;
+  }
+
+  &__link-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+
+  &:hover &__img {
+    opacity: 0.65;
+  }
+}

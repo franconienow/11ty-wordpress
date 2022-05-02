@@ -1,10 +1,6 @@
-// Styles
-@import "global/variables";
-
-// Reset
-@import "reset";
-
 // Globals
+@import "global/reset";
+@import "global/variables";
 @import "global/typography";
 @import "global/headers";
 
@@ -12,10 +8,16 @@
 @import "utilities/colors";
 @import "utilities/containers";
 @import "utilities/grids";
+@import "utilities/spacers";
+@import "utilities/images";
 
 // Components
 @import "components/tag";
 @import "components/button";
 @import "components/navbar";
-@import "components/post-preview-vertical";
+@import "components/dropdown";
+@import "components/card";
+@import "components/card-overlay";
 
+//Layouts
+@import "layouts/single-post";

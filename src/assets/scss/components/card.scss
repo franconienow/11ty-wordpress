@@ -1,0 +1,103 @@
+//
+// Card styles
+//
+
+.card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: $card-bg;
+  border: $card-border;
+  border-radius: $card-radius;
+  transition: $transition;
+
+  &__img {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    max-width: 100%;
+    border-top-left-radius: $card-radius;
+    border-top-right-radius: $card-radius;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    pointer-events: none;
+    z-index: 1;
+    padding-top: $card-body-padding-y;
+    padding-bottom: $card-body-padding-y;
+    padding-right: $card-body-padding-x;
+    padding-left: $card-body-padding-x;
+    transition: $transition;
+  }
+
+  &__title {
+    @extend h4;
+    margin-bottom: 0.5rem;
+  }
+
+  &__date,
+  &__excerpt {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: $font-size-small;
+    color: $gray-20;
+  }
+
+  &__excerpt {
+    margin-bottom: 4rem;
+  }
+
+  &__categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: auto;
+
+    & > .tag {
+      pointer-events: all;
+    }
+  }
+
+  &__link-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+
+  &:hover {
+    background-color: $card-hover-bg;
+  }
+
+  &:hover &__body {
+    transform: translateY(-0.25rem);
+  }
+
+  &--simplified {
+    aspect-ratio: 31/9;
+    flex-direction: row;
+  }
+
+  &--simplified &__header,
+  &--simplified &__body {
+    width: 50%;
+  }
+
+  &--simplified &__img {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: $card-radius;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: $card-radius;
+  }
+
+  &--simplified &__categories,
+  &--simplified &__excerpt {
+    display: none;
+  }
+}

@@ -1,0 +1,12 @@
+<div class="card-overlay">
+  <div class="card-overlay__body">
+    <h3 class="card-overlay__title">{{ thePost.title.rendered }}</h3>
+    <div class="card-overlay__excerpt">{{ thePost.excerpt.rendered | truncate: 150 }}</div>
+  </div>
+  <img
+    class="card-overlay__img"
+    src="{{ thePost.jetpack_featured_media_url }}"
+    alt="{{ thePost.title.rendered }}"
+  />
+  <a href="/posts/{{ thePost.id }}" class="card-overlay__link-overlay"></a>
+</div>

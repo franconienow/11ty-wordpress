@@ -78,6 +78,30 @@ $font-weight-h3: 400 !default;
 $font-weight-h2: 400 !default;
 $font-weight-h1: 500 !default;
 
+// Typography - Line heights
+$line-height-default: normal !default;
+$line-height-p: 1.5 !default;
+
+// Transitions
+$transition: all 100ms ease-in !default;
+
+// Spacers
+$margins: (
+  1: 1rem,
+  2: 2rem,
+  3: 5rem,
+  4: 6rem,
+  5: 8rem
+);
+
+$paddings: (
+  1: 1rem,
+  2: 2rem,
+  3: 5rem,
+  4: 6rem,
+  5: 8rem
+);
+
 // Breakpoints
 $breakpoints: (
   sm: 576px,
@@ -98,8 +122,7 @@ $containers-sizes: (
 );
 
 // Radius
-$border-radius: 0.75rem !default;
-$border-radius-lg: 1rem !default;
+$border-radius: 1rem !default;
 
 // Button
 $button-padding-left: 1rem !default;
@@ -118,9 +141,16 @@ $navbar-nav-padding-x: 1rem !default;
 $navbar-nav-link-hover-bg: $gray-70 !default;
 $navbar-nav-link-active-color: $pink !default;
 
-// Posts previews
-$post-preview-vertical-body-padding-y: 1rem !default;
-$post-preview-vertical-body-padding-x: 1rem !default;
-$post-preview-vertical-bg: $gray-80 !default;
-$post-preview-vertical-border: 1px solid $gray-70 !default;
-$post-preview-vertical-radius: $border-radius-lg !default;
+// Cards
+$card-body-padding-y: 1rem !default;
+$card-body-padding-x: 1rem !default;
+$card-bg: $gray-80 !default;
+$card-hover-bg: $gray-70 !default;
+$card-border: 1px solid $gray-70 !default;
+$card-radius: $border-radius !default;
+
+$card-overlay-body-padding-y: 1rem !default;
+$card-overlay-body-padding-x: 1rem !default;
+$card-overlay-border: 1px solid $gray-70 !default;
+$card-overlay-radius: $border-radius !default;
+$card-overlay-bg: $gray-90 !default;

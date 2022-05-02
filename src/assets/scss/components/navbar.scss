@@ -48,10 +48,6 @@
     }
   }
 
-  &__item--dropdown {
-    position: relative;
-  }
-
   &__link {
     display: block;
     color: $white;
@@ -60,15 +56,11 @@
     padding-right: $navbar-nav-padding-x;
     padding-top: $navbar-nav-padding-y;
     padding-bottom: $navbar-nav-padding-y;
-  }
-
-  &__link,
-  &__submenu-link {
     &:hover,
     &:active,
     &:focus-visible {
       outline: none;
-      background: $gray-60;
+      background: $gray-70;
     }
 
     &[aria-current="page"] {
@@ -76,55 +68,8 @@
     }
   }
 
-  &__link--dropdown {
-    display: flex;
-    gap: 0.5rem;
-
-    & > svg {
-      display: inline-block;
-      width: 1em;
-      height: 1em;
-    }
-  }
-
-  &__submenu {
-    display: none;
-    visibility: hidden;
-    flex-direction: column;
-    position: absolute;
-    min-width: 180px;
-    background-color: $gray-70;
-
-    &.active {
-      display: flex;
-      visibility: visible;
-    }
-  }
-
-  &__submenu-item {
-    position: relative;
-    &:not(:last-child):after {
-      content: "";
-      width: 70%;
-      height: 1px;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin-left: auto;
-      margin-right: auto;
-      background-color: $gray-60;
-    }
-  }
-
-  &__submenu-link {
-    display: block;
-    text-decoration: none;
-    padding-left: $navbar-nav-padding-y;
-    padding-right: $navbar-nav-padding-y;
-    padding-top: $navbar-nav-padding-y * 0.75;
-    padding-bottom: $navbar-nav-padding-y * 0.75;
-    color: $gray-20;
+  &__link.dropdown__toggler[aria-expanded="true"] {
+    background: $gray-70;
   }
 
   &__search {
@@ -175,7 +120,7 @@
 
   &__offcanvas {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     justify-content: space-between;
     position: fixed;
     top: 0;
@@ -184,7 +129,9 @@
     min-width: 300px;
     transform: translateX(-100%);
     visibility: hidden;
+    z-index: 2;
     background-color: $white;
+    transition: $transition;
 
     &.active {
       transform: none;
@@ -195,16 +142,14 @@
   &__offcanvas &__nav {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
   }
 
   &__offcanvas &__link {
     font-weight: $font-weight-h5;
     color: $gray-90;
-  }
+    background: none !important;
 
-  &__offcanvas &__link,
-  &__submenu-link {
     &:hover,
     &:active,
     &:focus-visible {
@@ -212,24 +157,30 @@
     }
   }
 
-  &__offcanvas &__submenu {
+  &__offcanvas .dropdown__target {
     background: transparent;
-  }
 
-  &__offcanvas &__submenu-item {
-    &::after {
+    & > li {
+      &:hover,
+      &:active,
+      &:focus-visible {
+        background: none;
+      }
+    }
+
+    & > li > a {
+      color: $gray-90;
+      padding-left: $navbar-nav-padding-x * 2;
+    }
+
+    & > li::after {
       display: none;
     }
   }
 
-  &__offcanvas &__submenu-link {
-    color: $gray-90;
-    padding-left: $navbar-nav-padding-x * 2;
-  }
-
   &__offcanvas-header {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     padding-left: $navbar-nav-padding-x;
     padding-right: $navbar-nav-padding-x;
     padding-top: $navbar-nav-padding-y;

@@ -10,10 +10,11 @@
   </a>
   <ul class="navbar__nav">
     {% for navPage in navPages %}
-      <li class="navbar__item{% if navPage.children.size > 0 %} navbar__item--dropdown{% endif %}">
+      <li class="navbar__item{% if navPage.children.size > 0 %} dropdown{% endif %}">
         <a
           href="{{ navPage.url }}"
-          class="navbar__link{% if navPage.children.size > 0 %} navbar__link--dropdown dropdown-toggler{% endif %}"
+          class="navbar__link{% if navPage.children.size > 0 %} dropdown__toggler{% endif %}"
+          {% if navPage.children.size > 0 %}aria-expanded="false"{% endif %}
           {% if navPage.url == page.url %}aria-current="page"{% endif %}
         >
           {{ navPage.title }}
@@ -24,11 +25,10 @@
           {% endif %}
         </a>
         {% if navPage.children.size > 0 %}
-        <ul class="navbar__submenu dropdown-target">
+        <ul class="dropdown__target">
           {% for childPage in navPage.children %}
-          <li class="navbar__submenu-item">
+          <li>
             <a 
-              class="navbar__submenu-link" 
               href="{{ childPage.url }}"
               {% if childPage.url == page.url %}aria-current="page"{% endif %}
             >

@@ -8,4 +8,12 @@ pagination:
 permalink: "posts/{{ post.id }}/"
 ---
 
-<h1>{{ post.title.rendered }}</h1>
+<article class="single-post py-2 py-lg-3">
+  <div class="container">
+    <h1 class="single-post__title">{{ post.title.rendered }}</h1>
+    <img class="single-post__thumb" src="{{ post.jetpack_featured_media_url }}" alt="">
+    <div class="single-post__content">
+      {{ post.content.rendered }}
+    </div>
+  </div>
+</article>

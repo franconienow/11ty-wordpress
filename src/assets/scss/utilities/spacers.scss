@@ -1,0 +1,119 @@
+//
+// Spacers styles
+//
+
+// Margins
+@each $spacer, $value in $margins {
+  .m-#{$spacer} {
+    margin: $value;
+  }
+  .mt-#{$spacer} {
+    margin-top: $value;
+  }
+  .mb-#{$spacer} {
+    margin-bottom: $value;
+  }
+  .my-#{$spacer} {
+    margin-top: $value;
+    margin-bottom: $value;
+  }
+  .ms-#{$spacer} {
+    margin-left: $value;
+  }
+  .me-#{$spacer} {
+    margin-right: $value;
+  }
+  .mx-#{$spacer} {
+    margin-left: $spacer;
+    margin-right: $value;
+  }
+}
+
+// Responsie margins
+@each $spacer, $svalue in $margins {
+  @each $breakpoint, $bvalue in $breakpoints {
+    @media (min-width: $bvalue) {
+      .m-#{$breakpoint}-#{$spacer} {
+        margin: $svalue;
+      }
+      .mt-#{$breakpoint}-#{$spacer} {
+        margin-top: $svalue;
+      }
+      .mb-#{$breakpoint}-#{$spacer} {
+        margin-bottom: $svalue;
+      }
+      .my-#{$breakpoint}-#{$spacer} {
+        margin-top: $svalue;
+        margin-bottom: $svalue;
+      }
+      .ms-#{$breakpoint}-#{$spacer} {
+        margin-left: $svalue;
+      }
+      .me-#{$breakpoint}-#{$spacer} {
+        margin-right: $svalue;
+      }
+      .mx-#{$breakpoint}-#{$spacer} {
+        margin-left: $spacer;
+        margin-right: $svalue;
+      }
+    }
+  }
+}
+
+// Paddings
+@each $spacer, $value in $paddings {
+  .p-#{$spacer} {
+    padding: $value;
+  }
+  .pt-#{$spacer} {
+    padding-top: $value;
+  }
+  .pb-#{$spacer} {
+    padding-bottom: $value;
+  }
+  .py-#{$spacer} {
+    padding-top: $value;
+    padding-bottom: $value;
+  }
+  .ps-#{$spacer} {
+    padding-left: $value;
+  }
+  .pe-#{$spacer} {
+    padding-right: $value;
+  }
+  .px-#{$spacer} {
+    padding-left: $spacer;
+    padding-right: $value;
+  }
+}
+
+// Responsive paddings
+@each $spacer, $svalue in $paddings {
+  @each $breakpoint, $bvalue in $breakpoints {
+    @media (min-width: $bvalue) {
+      .p-#{$breakpoint}-#{$spacer} {
+        padding: $svalue;
+      }
+      .pt-#{$breakpoint}-#{$spacer} {
+        padding-top: $svalue;
+      }
+      .pb-#{$breakpoint}-#{$spacer} {
+        padding-bottom: $svalue;
+      }
+      .py-#{$breakpoint}-#{$spacer} {
+        padding-top: $svalue;
+        padding-bottom: $svalue;
+      }
+      .ps-#{$breakpoint}-#{$spacer} {
+        padding-left: $svalue;
+      }
+      .pe-#{$breakpoint}-#{$spacer} {
+        padding-right: $svalue;
+      }
+      .px-#{$breakpoint}-#{$spacer} {
+        padding-left: $spacer;
+        padding-right: $svalue;
+      }
+    }
+  }
+}
