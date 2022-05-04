@@ -55,7 +55,7 @@
 .posts-grid {
   @extend .base-grid;
   justify-items: center;
-  
+
   @media (min-width: map.get($breakpoints, "lg")) {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
@@ -67,5 +67,21 @@
     > h2 {
       grid-column: 1 / 4;
     }
+  }
+}
+
+.footer-grid {
+  @extend .base-grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "logo   logo   logo"
+    "desc   desc   desc"
+    "nav    nav    nav"
+    "search search search";
+
+  @media (min-width: map.get($breakpoints, "lg")) {
+    grid-template-areas:
+      "logo nav search"
+      "desc nav search";
   }
 }

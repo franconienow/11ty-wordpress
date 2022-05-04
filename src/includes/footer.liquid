@@ -1,0 +1,52 @@
+<footer class="footer bg-gray-80 py-2">
+  <div class="container footer-grid">
+    <a href="/" class="footer__logo">
+      <img src="{{ site.logo }}" alt="Logo">
+    </a>
+    <div class="footer__desc">{{ site.description }}</div>
+    <nav class="footer__nav">
+      <h3>Navegação</h3>
+        <ul>
+        {% for navPage in navPages %}
+          <li class="footer__item{% if navPage.children.size > 0 %} dropdown dropdown--right{% endif %}">
+              <a
+                href="{{ navPage.url }}"
+                class="footer__link{% if navPage.children.size > 0 %} dropdown__toggler{% endif %}"
+                {% if navPage.children.size > 0 %}aria-expanded="false"{% endif %}
+                {% if navPage.url == page.url %}aria-current="page"{% endif %}
+              >
+                {{ navPage.title }}
+                {% if navPage.children.size > 0 %} 
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                {% endif %}
+              </a>
+              {% if navPage.children.size > 0 %}
+                <ul class="dropdown__target">
+                  {% for childPage in navPage.children %}
+                  <li>
+                    <a 
+                      href="{{ childPage.url }}"
+                      {% if childPage.url == page.url %}aria-current="page"{% endif %}
+                    >
+                      {{ childPage.title }}
+                    </a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+          </li>
+        {% endfor %}
+        </ul>
+    </nav>
+    <a href="#" data-scroll-to="#navbar-search" class="footer__search">
+      <h3>
+        Não encontrou o que estava buscando?
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+        </svg>
+      </h3>  
+    </a>
+  </div>
+</footer>
