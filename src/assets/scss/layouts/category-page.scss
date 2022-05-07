@@ -1,0 +1,23 @@
+//
+// Category page styles
+//
+
+@use "sass:map";
+
+.category-page {
+  &__masthead {
+    @extend .py-2, .py-lg-3;
+    background-color: $gray-70;
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    .container {
+      @media (min-width: map.get($breakpoints, "lg")) {
+        max-width: 480px;
+        text-align: center;
+      }
+    }
+  }
+}

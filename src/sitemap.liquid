@@ -1,0 +1,15 @@
+---
+permalink: sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% for curPage in collections.all %}
+  {% if curPage.url %}  
+  <url>
+    <loc>https://{{ site.domain }}{{ curPage.url }}</loc>
+    <lastmod>{{ curPage.date | date: "%Y-%m-%d" }}</lastmod>
+  </url>
+  {% endif %}
+  {% endfor %}
+</urlset>

@@ -13,5 +13,19 @@ eleventyComputed:
     title: "{{ category.name }}"
     id: "{{ category.id }}"
 ---
-
-<h1>{{ category.name }}</h1>
+<main class="category-page">
+  <section class="category-page__masthead">
+    <div class="container">
+      <h1>{{ category.name }}</h1>
+      <p>{{ category.description }}</p>
+    </div>
+  </section>
+  <section class="py-2 py-lg-3">
+    <div class="container posts-grid">
+      {% assign filteredPosts = posts | getPostsByCat: category.id %}
+      {% for post in filteredPosts %}
+        {% include 'card', thePost: post %}
+      {% endfor %}
+    </div>
+  </section>
+</main>

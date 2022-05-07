@@ -1,52 +1,23 @@
 const path = require("path");
+const glob = require("glob");
 const htmlmin = require("html-minifier");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 
 module.exports = (eleventyConfig) => {
+  // Add plugins
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
-  eleventyConfig.addLiquidFilter("getCategoryPage", (catId, pages) => {
-    for (const page of pages) {
-      if (page.id == catId) {
-        return page;
-      }
-    }
-  });
-
-  eleventyConfig.addLiquidFilter("getRelatedPosts", (posts, catList, curId) => {
-    const relatedPosts = [];
-    for (const curCategory of catList) {
-      for (const post of posts) {
-        if (post.categories.includes(curCategory) && post.id != curId) {
-          if (!relatedPosts.map((rPost) => rPost.id).includes(post.id)) {
-            relatedPosts.push(post);
-          }
-        }
-      }
-    }
-
-    const shuffleArray = (array) => {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        const temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-      }
-      return array
-    };
-
-    if (relatedPosts.length > 0) {
-      const shuffled = shuffleArray(Array.from(relatedPosts));
-      return shuffled.slice(0, 2);
-    }
-
-    return false;
-
-    // TODO: Testar shuffle
-  });
-
+  // Ignore assets folder
   eleventyConfig.ignores.add(path.join("src", "assets", "/**"));
 
+  // Add filters
+  const filtersDir = glob.sync("src/filters/*.js");
+  filtersDir.forEach((filterFile) => {
+    const filter = require(path.resolve(filterFile));
+    eleventyConfig.addLiquidFilter(path.parse(filterFile).name, filter);
+  });
+
+  // Add HTML minifier transformation
   eleventyConfig.addTransform("htmlmin", (content, outputPath) => {
     if (outputPath && outputPath.endsWith(".html")) {
       let minified = htmlmin.minify(content, {

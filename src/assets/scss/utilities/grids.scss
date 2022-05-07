@@ -72,16 +72,19 @@
 
 .footer-grid {
   @extend .base-grid;
+  justify-items: start;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
     "logo   logo   logo"
     "desc   desc   desc"
     "nav    nav    nav"
-    "search search search";
+    "search search search"
+    "cp cp cp";
 
   @media (min-width: map.get($breakpoints, "lg")) {
     grid-template-areas:
       "logo nav search"
-      "desc nav search";
+      "desc nav search"
+      "cp   cp  cp";
   }
 }

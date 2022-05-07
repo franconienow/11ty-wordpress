@@ -1,5 +1,6 @@
 {
   "name": "11ty-Wordpress",
   "description": "Lorem ipsum dollor",
-  "logo": "http://admin.bigtuna.site/wp-content/uploads/2022/04/Logo.svg"
+  "logo": "http://admin.bigtuna.site/wp-content/uploads/2022/04/Logo.svg",
+  "domain": "bigtuna.site"
 }
