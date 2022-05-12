@@ -12,9 +12,10 @@
   transition: $transition;
 
   &__img {
+    width: 100%;
+    height: auto;
     aspect-ratio: 16/9;
     object-fit: cover;
-    max-width: 100%;
     border-top-left-radius: $card-radius;
     border-top-right-radius: $card-radius;
   }

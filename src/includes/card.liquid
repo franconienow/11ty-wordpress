@@ -1,10 +1,17 @@
 <div class="card{% if simplified %} card--simplified{% endif %}">
   <div class="card__header">
-    <img
-      class="card__img"
-      src="{{ thePost.jetpack_featured_media_url }}"
-      alt="{{ thePost.title.rendered }}"
-    />
+    <picture>
+      <source type="image/webp" srcset="{{ thePost.better_featured_image.media_details.sizes.medium_large.source_url | replace: '.jpg', '.webp' }}">
+      <source type="image/jpg" srcset="{{ thePost.better_featured_image.media_details.sizes.medium_large.source_url }}">
+      <img 
+        class="card__img" 
+        src="{{ thePost.better_featured_image.media_details.sizes.medium_large.source_url }}" 
+        alt="{{ thePost.title.rendered }}"
+        width="{{ thePost.better_featured_image.media_details.sizes.medium_large.width }}"
+        height="{{ thePost.better_featured_image.media_details.sizes.medium_large.height }}"
+        loading="lazy"
+      >
+    </picture>
   </div>
   <div class="card__body">
     <h3 class="card__title">{{ thePost.title.rendered }}</h3>

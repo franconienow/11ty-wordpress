@@ -11,7 +11,18 @@ permalink: "posts/{{ post.id }}/"
   <article class="py-2 py-lg-3">
     <div class="container">
       <h1 class="single-post__title">{{ post.title.rendered }}</h1>
-      <img class="single-post__thumb" src="{{ post.jetpack_featured_media_url }}" alt="">
+      <picture>
+        <source type="image/webp" srcset="{{ post.better_featured_image.media_details.sizes.1536x1536.source_url | replace: '.jpg', '.webp' }}">
+        <source type="image/jpg" srcset="{{ post.better_featured_image.media_details.sizes.1536x1536.source_url }}">
+        <img 
+          class="single-post__thumb" 
+          src="{{ post.better_featured_image.media_details.sizes.1536x1536.source_url }}" 
+          alt="{{ post.title.rendered }}"
+          width="{{ post.better_featured_image.media_details.sizes.1536x1536.width }}"
+          height="{{ post.better_featured_image.media_details.sizes.1536x1536.height }}"
+          loading="lazy"
+        >
+      </picture>
       <div class="single-post__content">
         {{ post.content.rendered }}
       </div>

@@ -7,31 +7,41 @@ eleventyNavigation:
   order: 0
 title: This is the home page!
 ---
+
 <main class="home-page">
   <section class="py-2 py-lg-3">
     <div class="container hero-grid">
-      <img class="img-fluid hero-grid__img" src="{{ home.acf.hero.image.url }}" alt="{{ home.acf.hero.title }}">
+      <picture>
+        <source type="image/webp" srcset="{{ home.acf.hero.image.sizes.large | replace: '.png', '.webp' }}">
+        <source type="image/png" srcset="{{ home.acf.hero.image.sizes.large }}">
+        <img 
+          class="img-fluid hero-grid__img" 
+          src="{{ home.acf.hero.image.sizes.large }}" 
+          alt="{{ home.acf.hero.title }}"
+          width="{{ home.acf.hero.image.sizes.large-width }}"
+          height="{{ home.acf.hero.image.sizes.large-height }}"
+          loading="lazy"
+        >
+      </picture>
       <div class="hero-grid__text">
         <h1 class="mb-2">{{ home.acf.hero.title }}</h1>
         {{ home.acf.hero.description }}
       </div>
-      {% include 'card-overlay', thePost: posts[0] %}
-      {% include 'card-overlay', thePost: posts[1] %}
+      {% include 'card-overlay', thePost: posts[0] %} {% include 'card-overlay',
+      thePost: posts[1] %}
     </div>
   </section>
   <section class="py-2 py-lg-3">
     <div class="container latests-posts-grid">
       <h2 class="text-secondary">{{ home.acf.latests_posts.title }}</h2>
-      {% include 'card-overlay', thePost: posts[0] %}
-      {% include 'card-overlay', thePost: posts[1] %}
+      {% include 'card-overlay', thePost: posts[0] %} {% include 'card-overlay',
+      thePost: posts[1] %}
     </div>
   </section>
   <section class="py-2 py-lg-3">
     <div class="container posts-grid">
       <h2 class="text-secondary">Todos os Posts</h2>
-      {% for post in posts %}
-        {% include 'card', thePost: post %}
-      {% endfor %}
+      {% for post in posts %} {% include 'card', thePost: post %} {% endfor %}
       <button class="btn btn--tertiary">Carregar mais</button>
     </div>
   </section>
