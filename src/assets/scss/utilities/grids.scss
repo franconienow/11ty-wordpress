@@ -55,18 +55,10 @@
 .posts-grid {
   @extend .base-grid;
   justify-items: center;
-
+  
   @media (min-width: map.get($breakpoints, "lg")) {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-
-    > button.btn {
-      grid-column: 1 / 4;
-    }
-
-    > h2 {
-      grid-column: 1 / 4;
-    }
   }
 }
 

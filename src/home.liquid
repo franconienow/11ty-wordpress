@@ -30,18 +30,14 @@ title: This is the home page!
       thePost: posts[1] %}
     </div>
   </section>
-  <section class="py-2 py-lg-3">
-    <div class="container latests-posts-grid">
-      <h2 class="text-secondary">{{ home.acf.latests_posts.title }}</h2>
-      {% include 'card-overlay', thePost: posts[0] %} {% include 'card-overlay',
-      thePost: posts[1] %}
-    </div>
-  </section>
-  <section class="py-2 py-lg-3">
-    <div class="container posts-grid">
-      <h2 class="text-secondary">Todos os Posts</h2>
-      {% for post in posts %} {% include 'card', thePost: post %} {% endfor %}
-      <button class="btn btn--tertiary">Carregar mais</button>
+  <section class="text-aling-center py-2 py-lg-3">
+    <div class="container">
+      <h2 class="mb-3">Todos os Posts</h2>
+      <div class="posts-grid">
+        {% assign slicedPosts = posts | arrSlice: 0, 2 %}
+        {% for post in slicedPosts %} {% include 'card', thePost: post %} {% endfor %}
+      </div>
+      <button class="btn btn--tertiary mt-3" data-load="posts" data-load-size="1">Carregar mais</button>
     </div>
   </section>
 </main>

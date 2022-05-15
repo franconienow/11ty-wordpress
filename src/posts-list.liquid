@@ -1,0 +1,6 @@
+---
+permalink: posts-list.json
+eleventyExcludeFromCollections: true
+---
+{% assign catPages = collections.all | eleventyNavigation: "categories" %}
+{{ posts | postsToJSON: catPages }}
