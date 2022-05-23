@@ -32,12 +32,12 @@ title: This is the home page!
   </section>
   <section class="text-aling-center py-2 py-lg-3">
     <div class="container">
-      <h2 class="mb-3">Todos os Posts</h2>
+      <h2 class="mb-2">Todos os Posts</h2>
       <div class="posts-grid">
-        {% assign slicedPosts = posts | arrSlice: 0, 2 %}
+        {% assign slicedPosts = posts | arrSlice: 0, 3 %}
         {% for post in slicedPosts %} {% include 'card', thePost: post %} {% endfor %}
       </div>
-      <button class="btn btn--tertiary mt-3" data-load="posts" data-load-size="1">Carregar mais</button>
+      <button class="btn btn--tertiary mt-3" data-load="posts" data-load-size="3">Carregar mais</button>
     </div>
   </section>
 </main>

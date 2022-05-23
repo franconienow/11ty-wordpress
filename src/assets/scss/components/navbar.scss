@@ -7,6 +7,13 @@
 .navbar {
   display: flex;
   align-items: center;
+  padding-top: $navbar-nav-padding-y;
+  padding-bottom: $navbar-nav-padding-y;
+
+  @media (min-width: map.get($breakpoints, "lg")) {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 
   &__logo {
     display: flex;
@@ -41,6 +48,7 @@
   }
 
   &__nav {
+    flex-grow: 1;
     display: none;
 
     @media (min-width: map.get($breakpoints, "lg")) {
@@ -73,26 +81,8 @@
   }
 
   &__search {
-    position: relative;
+    flex-grow: 1;
     margin-left: auto;
-    cursor: pointer;
-    padding-top: $navbar-nav-padding-y * 0.75;
-    padding-bottom: $navbar-nav-padding-y * 0.75;
-
-    & > input[type="text"] {
-      display: none;
-      visibility: hidden;
-    }
-
-    & > svg {
-      display: inline-block;
-      width: 1.4rem;
-      height: 1.4rem;
-    }
-
-    @media (min-width: map.get($breakpoints, "lg")) {
-      padding: 0;
-    }
   }
 
   &__nav-toggler {

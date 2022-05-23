@@ -5,7 +5,6 @@ const initNavbar = () => {
   const navList = navbar.querySelector("ul.navbar__nav");
   const offcanvas = makeOffcanvasMenu(navList.cloneNode(true));
   document.body.appendChild(offcanvas);
-
   const offcanvasToggler = navbar.querySelector(".navbar__nav-toggler");
   offcanvasToggler.addEventListener("click", () => {
     offcanvas.classList.toggle("active");

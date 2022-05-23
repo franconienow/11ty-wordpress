@@ -1,0 +1,62 @@
+//
+// Search styles
+//
+
+@use "sass:map";
+
+.search {
+  flex-grow: 0;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  background: transparent;
+  color: $search-color;
+  border: $search-border;
+  border-color: transparent;
+  cursor: pointer;
+
+  &__input {
+    display: none;
+    visibility: hidden;
+    width: 100%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+
+    background: transparent;
+    color: inherit;
+    font-size: $search-font-size;
+    border: none;
+    outline: none;
+
+    &::placeholder {
+      color: $search-placeholder-color;
+    }
+  }
+
+  &__icon {
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+  }
+
+  &:focus-within {
+    outline: none;
+    border: $search-border;
+  }
+}
+
+.search.active {
+  flex-grow: 1;
+  max-width: $search-max-width;
+  background: $search-background;
+  cursor: text;
+
+  .search__input {
+    display: block;
+    visibility: visible;
+  }
+
+  .search__icon {
+    margin-left: 0.5rem;
+  }
+}

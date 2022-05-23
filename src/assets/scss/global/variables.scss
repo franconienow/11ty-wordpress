@@ -91,7 +91,7 @@ $margins: (
   2: 2rem,
   3: 5rem,
   4: 6rem,
-  5: 8rem
+  5: 8rem,
 );
 
 $paddings: (
@@ -99,7 +99,7 @@ $paddings: (
   2: 2rem,
   3: 5rem,
   4: 6rem,
-  5: 8rem
+  5: 8rem,
 );
 
 // Breakpoints
@@ -160,3 +160,11 @@ $footer-logo-width: 64px !default;
 
 // Dropdown
 $dropdown-border: 1px solid $gray-60 !default;
+
+// Search
+$search-font-size: $font-size-body !default;
+$search-max-width: 228px !default;
+$search-color: $gray-20 !default;
+$search-placeholder-color: $gray-40 !default;
+$search-background: $gray-60 !default;
+$search-border: solid 2px $teal !default;

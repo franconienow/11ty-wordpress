@@ -1,5 +1,5 @@
 ---
-permalink: about/
+permalink: sobre/
 layout: base.liquid
 eleventyNavigation:
   key: about
@@ -8,3 +8,49 @@ eleventyNavigation:
 title: This is the About Page!
 ---
 
+<main class="about-page">
+  <section class="py-2 py-lg-3">
+    <div class="container text-image-grid">
+      <div class="text-image-grid__text">
+        {{ about.acf.line_1.text }}
+      </div>
+      <picture>
+        <source type="image/webp" srcset="{{ about.acf.line_1.image.sizes.large | replace: '.png', '.webp' }}">
+        <source type="image/png" srcset="{{ about.acf.line_1.image.sizes.large }}">
+        <img 
+          class="img-fluid text-image-grid__image" 
+          src="{{ about.acf.line_1.image.sizes.large }}" 
+          alt="{{ about.acf.line_1.title }}"
+          width="{{ about.acf.line_1.image.sizes.large-width }}"
+          height="{{ about.acf.line_1.image.sizes.large-height }}"
+        >
+      </picture>
+    </div>
+  </section>
+  <section class="py-2 py-lg-3">
+    <div class="container text-image-grid text-image-grid--reverse">
+      <div class="text-image-grid__text">
+        {{ about.acf.line_2.text }}
+      </div>
+      <picture>
+        <source type="image/webp" srcset="{{ about.acf.line_2.image.sizes.large | replace: '.png', '.webp' }}">
+        <source type="image/png" srcset="{{ about.acf.line_2.image.sizes.large }}">
+        <img 
+          class="img-fluid text-image-grid__image" 
+          src="{{ about.acf.line_2.image.sizes.large }}" 
+          alt="{{ about.acf.line_2.image.alt }}"
+          width="{{ about.acf.line_2.image.sizes.large-width }}"
+          height="{{ about.acf.line_2.image.sizes.large-height }}"
+        >
+      </picture>
+    </div>
+  </section>
+  <section class="py-2 py-lg-3">
+    <div class="container">
+      <h2 class="text-secondary mb-2">{{ about.acf.technologies.title }}</h2>
+      <div class="tech-stack">
+        {{ about.acf.technologies.list }}
+      </div>
+    </div>
+  </section>
+</main>

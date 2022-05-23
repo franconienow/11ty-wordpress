@@ -1,0 +1,21 @@
+//
+// About page styles
+//
+
+.about-page {
+  .tech-stack {
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    li {
+      @extend h3;
+      &:before {
+        content: "•";
+        margin-right: 0.75rem;
+        color: $pink;
+      }
+    }
+  }
+}

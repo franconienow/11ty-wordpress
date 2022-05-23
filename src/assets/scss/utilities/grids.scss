@@ -40,6 +40,42 @@
   }
 }
 
+.text-image-grid {
+  @extend .base-grid;
+  @media (min-width: map.get($breakpoints, "lg")) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "img txt";
+    align-items: center;
+    gap: 3rem;
+
+    &__text {
+      grid-area: txt;
+    }
+
+    &__image {
+      grid-area: img;
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+
+    &--reverse {
+      grid-template-areas: "txt img";
+    }
+  }
+
+  &__text {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
 .latests-posts-grid {
   @extend .base-grid;
   @media (min-width: map.get($breakpoints, "lg")) {
@@ -55,7 +91,7 @@
 .posts-grid {
   @extend .base-grid;
   justify-items: center;
-  
+
   @media (min-width: map.get($breakpoints, "lg")) {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
