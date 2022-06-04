@@ -55,12 +55,13 @@
 
   &__results {
     display: none;
-    border: $search-results-border;
     position: absolute;
     bottom: 0;
     transform: translateY(calc(100% + 0.5rem));
     z-index: 2;
     flex-direction: column;
+    width: 100%;
+    border: $search-results-border;
     background: $search-results-background;
   }
 

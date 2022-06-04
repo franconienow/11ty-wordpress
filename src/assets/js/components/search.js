@@ -14,7 +14,7 @@ export default class Search {
     });
     this.inputClose.addEventListener("click", (event) => {
       event.stopPropagation();
-      this.el.classList.remove("active");
+      this.unveilInput();
     });
     this.input.addEventListener("input", async () => {
       const results = await this.search(this.input.value);
@@ -24,10 +24,16 @@ export default class Search {
 
   revealInput() {
     this.el.classList.add("active");
+    this.results.classList.remove("active");
+    this.input.value = "";
+    this.renderResults(false);
   }
 
   unveilInput() {
     this.el.classList.remove("active");
+    this.results.classList.remove("active");
+    this.input.value = "";
+    this.renderResults(false);
   }
 
   createResults() {
@@ -42,6 +48,7 @@ export default class Search {
       this.results.classList.remove("active");
       return;
     }
+    this.results.classList.add("active");
     for (const result of resultsArr) {
       const node = document.createElement("a");
       node.href = "/posts/" + result.id;
@@ -49,7 +56,6 @@ export default class Search {
       node.innerHTML = result.title;
       this.results.appendChild(node);
     }
-    this.results.classList.add("active");
   }
 
   async search(str) {
