@@ -22,6 +22,7 @@
     visibility: hidden;
     flex-direction: column;
     position: absolute;
+    z-index: 2;
     min-width: 180px;
     background-color: $gray-70;
     border: $dropdown-border;
@@ -56,10 +57,10 @@
   &__target > li > a {
     display: block;
     text-decoration: none;
-    padding-left: $navbar-nav-padding-y;
-    padding-right: $navbar-nav-padding-y;
-    padding-top: $navbar-nav-padding-y * 0.75;
-    padding-bottom: $navbar-nav-padding-y * 0.75;
+    padding-left: $dropdown-padding-x;
+    padding-right: $dropdown-padding-x;
+    padding-top: $dropdown-padding-y;
+    padding-bottom: $dropdown-padding-y;
     color: $gray-20;
 
     &[aria-current="page"] {
@@ -67,7 +68,7 @@
     }
   }
 
-  &--right &__target  {
+  &--right &__target {
     right: 0;
     bottom: 0;
     transform: translateX(calc(100% + 1rem));

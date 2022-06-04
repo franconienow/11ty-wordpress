@@ -5,6 +5,7 @@
 @use "sass:map";
 
 .search {
+  position: relative;
   flex-grow: 0;
   display: flex;
   gap: 0.5rem;
@@ -39,15 +40,53 @@
     height: 1.4em;
   }
 
+  &__close-icon {
+    display: none;
+    width: 1.4em;
+    height: 1.4em;
+    cursor: pointer;
+    margin-right: 0.5rem;
+  }
+
   &:focus-within {
     outline: none;
     border: $search-border;
+  }
+
+  &__results {
+    display: none;
+    border: $search-results-border;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(calc(100% + 0.5rem));
+    z-index: 2;
+    flex-direction: column;
+    background: $search-results-background;
+  }
+
+  &__results.active {
+    display: flex;
+  }
+
+  &__result {
+    display: block;
+    text-decoration: none;
+    padding-left: $search-result-padding-x;
+    padding-right: $search-result-padding-x;
+    padding-top: $search-result-padding-y;
+    padding-bottom: $search-result-padding-y;
+    color: $gray-20;
+
+    &:hover,
+    &:active,
+    &:focus-visible {
+      background-color: $gray-60;
+    }
   }
 }
 
 .search.active {
   flex-grow: 1;
-  max-width: $search-max-width;
   background: $search-background;
   cursor: text;
 
@@ -58,5 +97,13 @@
 
   .search__icon {
     margin-left: 0.5rem;
+  }
+
+  .search__close-icon {
+    display: inline-block;
+  }
+
+  @media (min-width: map.get($breakpoints, "lg")) {
+    max-width: $search-max-width;
   }
 }

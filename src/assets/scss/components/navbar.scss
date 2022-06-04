@@ -18,6 +18,7 @@
   &__logo {
     display: flex;
     position: relative;
+    margin-right: 1rem;
 
     & > img {
       width: $navbar-logo-width * 0.75;
@@ -25,6 +26,7 @@
 
       @media (min-width: map.get($breakpoints, "lg")) {
         width: $navbar-logo-width;
+        margin-right: 0;
       }
     }
 

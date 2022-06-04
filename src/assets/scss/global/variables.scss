@@ -160,11 +160,17 @@ $footer-logo-width: 64px !default;
 
 // Dropdown
 $dropdown-border: 1px solid $gray-60 !default;
+$dropdown-padding-x: 1.125rem !default;
+$dropdown-padding-y: 0.85rem !default;
 
 // Search
 $search-font-size: $font-size-body !default;
-$search-max-width: 228px !default;
+$search-max-width: 400px !default;
 $search-color: $gray-20 !default;
 $search-placeholder-color: $gray-40 !default;
 $search-background: $gray-60 !default;
 $search-border: solid 2px $teal !default;
+$search-results-border: 1px solid $gray-60 !default;
+$search-results-background: $gray-70 !default;
+$search-result-padding-x: 1.125rem !default;
+$search-result-padding-y: 0.85rem !default;
